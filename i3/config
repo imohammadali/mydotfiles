@@ -12,8 +12,9 @@
 set $mod Mod4
 include $HOME/.config/i3/bar.conf
 include $HOME/.config/i3/theme.conf
-exec xrandr --output DP-1-0 --right-of eDP-1 --output HDMI-1 --right-of DP-1-0 &
-exec xrandr --output HDMI-1 --mode 1680x1050 --rate 59.88 --rotate left &
+#exec xrandr --output DP-1-0 --auto --right-of eDP-1 --output HDMI-1 --right-of DP-1-0 &
+exec --no-startup-id xrandr --output DP-1-0 --auto --right-of eDP-1 &
+#exec xrandr --output HDMI-1 --mode 1680x1050 --rate 59.88 --rotate left &
 
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -200,7 +201,7 @@ exec_always nitrogen --restore
 exec_always "setxkbmap -model pc104 -layout us,ir -variant ,, -option grp:alt_shift_toggle"
 workspace 10  output eDP-1
 workspace 1 output DP-1-0
-workspace 11 output HDMI-1
+#workspace 11 output HDMI-1
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
 bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
 bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
